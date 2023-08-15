@@ -27,7 +27,7 @@
       },
       "appServicePlanName": {
         "type": "string",
-        "defaultValue": "AlimadeChange"
+        "defaultValue": "FaisalmadeChange"
       }
     },
     "variables": {
