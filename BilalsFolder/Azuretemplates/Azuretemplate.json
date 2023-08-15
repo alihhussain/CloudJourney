@@ -27,7 +27,7 @@
       },
       "appServicePlanName": {
         "type": "string",
-        "defaultValue": "exampleplan"
+        "defaultValue": "AlimadeChange"
       }
     },
     "variables": {
