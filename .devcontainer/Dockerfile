@@ -2,14 +2,11 @@
 FROM docker:20.10-dind
 
 # Install dependencies
-RUN apk add --no-cache \
-    curl \
-    py-pip \
-    libffi-dev \
-    openssl-dev \
-    gcc \
-    libc-dev \
-    make
+RUN update
+RUN add bash
+RUN add --no-cache curl
+RUN curl -L https://aka.ms/InstallAzureCli | bash
+RUN az
 
 # Install Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sh
