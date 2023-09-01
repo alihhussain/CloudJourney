@@ -5,7 +5,6 @@ FROM docker:20.10-dind
 RUN apk add --no-cache \
     curl \
     py-pip \
-    python-dev \
     libffi-dev \
     openssl-dev \
     gcc \
