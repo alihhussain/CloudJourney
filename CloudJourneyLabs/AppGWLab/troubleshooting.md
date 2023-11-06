@@ -7,7 +7,12 @@ Go to the URL of the App Service
 
 ```https://licenserenewal2443.azurewebsites.net/```
 
-## Backend Troubleshooting
+
+
+## Virtual Machine Backend Troubleshooting
+Go to the URL of the VMs
+
+```http://vehicleapp30640.westus.cloudapp.azure.com/```
 
 1. Download the ```~/.ssh/id_rsa``` file from cloudshell
 2. Deploy bastion to log into ```webServer1```
