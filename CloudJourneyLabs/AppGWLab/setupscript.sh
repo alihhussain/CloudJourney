@@ -5,3 +5,4 @@ apt install net-tools
 
 # Get the website file
 wget https://raw.githubusercontent.com/alihhussain/CloudJourney/main/CloudJourneyLabs/AppGWLab/webserver.py    
+nohup python3 webserver.py & 
