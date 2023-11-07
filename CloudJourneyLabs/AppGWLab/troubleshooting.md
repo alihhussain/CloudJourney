@@ -41,6 +41,8 @@ We need to configure the VM and setup the webserver
     
     # Get the website file
     wget https://raw.githubusercontent.com/alihhussain/CloudJourney/main/CloudJourneyLabs/AppGWLab/webserver.py
+
+    wget https://raw.githubusercontent.com/alihhussain/CloudJourney/main/CloudJourneyLabs/AppGWLab/setupscript.sh
     
     #Run the command to start the website
     nohup python3 webserver.py & 
