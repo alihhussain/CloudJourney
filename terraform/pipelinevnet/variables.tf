@@ -25,5 +25,5 @@ variable "subnet_name" {
 
 variable "subnet_prefix" {
   description = "A list of subnet prefixes that must be within the Virtual Network address space"
-  type        = string
+  type        = list(string)
 }
