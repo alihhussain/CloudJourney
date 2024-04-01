@@ -15,15 +15,15 @@ variable "vnet_name" {
 
 variable "address_space" {
   description = "The address space of the virtual network"
-  type        = list(string)
+  type        = string
 }
 
-variable "subnet_names" {
+variable "subnet_name" {
   description = "A list of subnet names"
   type        = string
 }
 
-variable "subnet_prefixes" {
+variable "subnet_prefix" {
   description = "A list of subnet prefixes that must be within the Virtual Network address space"
   type        = string
 }
