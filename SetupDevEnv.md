@@ -1,4 +1,4 @@
-It looks like you provided the IP address for a Jenkins server (4.246.167.105) and mentioned that the user is `azureuser`. Here's how you can SSH into this Jenkins server and set up a connection from your laptop:
+Here's how you can SSH into this Jenkins server and set up a connection from your laptop:
 
 ### Step 1: Generate SSH Key Pair on Your Laptop
 Open a terminal on your laptop and use the following command to generate an SSH key pair. When prompted, you can press Enter to use the default file location and create the key without a passphrase for simplicity, although using a passphrase is recommended for increased security.
