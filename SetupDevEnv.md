@@ -32,7 +32,7 @@ To add a new user on the Jenkins server and enable SSH key-based authentication 
 Once logged into the Jenkins server, you can create a new user. Let’s call this new user `jenkinsuser`. You'll need sudo privileges to do this:
 
 ```bash
-sudo adduser jenkinsuser
+sudo adduser YOURNAMEuser "Select UserName"
 ```
 
 You'll be prompted to enter and confirm a new password for `jenkinsuser` and optionally fill in some additional information.
@@ -84,6 +84,8 @@ Set the SSH key to be used with GitHub:
 ```bash
 git config --global core.sshCommand "ssh -i ~/.ssh/id_rsa"
 ```
+scp -r /path/to/local/directory username@remote-server-ip:/path/to/remote/directory/
+example scp -r /c/Users/CloudJourney/.ssh/ mruser@4.246.167.105:/home/mruser/.ssh/
 
 ### Step 9: Secure the Private Key
 Ensure your private key (`~/.ssh/id_rsa` by default) is kept secure and private. Set the correct permissions if not already set:
