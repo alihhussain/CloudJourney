@@ -1,4 +1,4 @@
-![image](https://github.com/alihhussain/CloudJourney/assets/13628297/b8798ba6-2f61-4513-9281-030d23ad1683)Here's how you can SSH into this Jenkins server and set up a connection from your laptop:
+Here's how you can SSH into this Jenkins server and set up a connection from your laptop:
 
 ### Step 1: Generate SSH Key Pair on Your Laptop
 Open a terminal on your laptop and use the following command to generate an SSH key pair. When prompted, you can press Enter to use the default file location and create the key without a passphrase for simplicity, although using a passphrase is recommended for increased security.
