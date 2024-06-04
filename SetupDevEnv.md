@@ -62,7 +62,7 @@ Next, set up the SSH key that you created on your local machine to be used for S
 ### Step 7: SSH into the Jenkins Server as the New User
 Now, from your local machine, try to SSH into the server using the new user account to confirm that everything is set up correctly:
 ```bash
-ssh jenkinsuser@4.246.167.105
+ssh cloudjourney@13.92.174.135
 ```
 
 ### Step 8: Configure Local Git Environment (If Required)
