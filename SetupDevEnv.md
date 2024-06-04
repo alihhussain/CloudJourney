@@ -1,4 +1,4 @@
-Here's how you can SSH into this Jenkins server and set up a connection from your laptop:
+![image](https://github.com/alihhussain/CloudJourney/assets/13628297/b8798ba6-2f61-4513-9281-030d23ad1683)Here's how you can SSH into this Jenkins server and set up a connection from your laptop:
 
 ### Step 1: Generate SSH Key Pair on Your Laptop
 Open a terminal on your laptop and use the following command to generate an SSH key pair. When prompted, you can press Enter to use the default file location and create the key without a passphrase for simplicity, although using a passphrase is recommended for increased security.
@@ -11,7 +11,7 @@ ssh-keygen -t rsa -b 4096
 Now you need to copy the public key to the Jenkins server. This can typically be done using the `ssh-copy-id` command. Replace `your_public_key.pub` with the path to your public key if it's not the default (`~/.ssh/id_rsa.pub`).
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub azureuser@4.246.167.105
+ssh-copy-id -i ~/.ssh/id_rsa.pub cloudjourney@13.92.174.135
 ```
 
 You will be prompted to enter the password for `azureuser` the first time you do this.
@@ -20,7 +20,7 @@ You will be prompted to enter the password for `azureuser` the first time you do
 Once the key is added, you can SSH into the server without a password:
 
 ```bash
-ssh azureuser@4.246.167.105
+ssh cloudjourney@13.92.174.135
 ```
 
 ### Step 4: Verify Connection
