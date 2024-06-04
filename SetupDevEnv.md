@@ -32,7 +32,7 @@ To add a new user on the Jenkins server and enable SSH key-based authentication 
 Once logged into the Jenkins server, you can create a new user. Let’s call this new user `jenkinsuser`. You'll need sudo privileges to do this:
 
 ```bash
-sudo adduser YOURNAMEuser "Select UserName"
+sudo adduser YOURNAMEuser
 ```
 
 You'll be prompted to enter and confirm a new password for `jenkinsuser` and optionally fill in some additional information.
