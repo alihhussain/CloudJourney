@@ -1,5 +1,5 @@
 location             = "East US"
-resource_group_name  = "faisalp2"
+resource_group_name  = "faisalRGp2"
 vnet_name            = "faisalp2vnet"
 address_space        = ["10.0.0.0/21"]
 subnet_name         = "faisalsub1"
