@@ -109,7 +109,7 @@ resource "azurerm_network_interface" "main" {
   }
 }
 
-# Associate the NSG with the subnet
+# Associate the NSG with the subnets
 resource "azurerm_subnet_network_security_group_association" "main" {
   subnet_id                 = azurerm_virtual_network.main.subnet.0.id
   network_security_group_id = azurerm_network_security_group.main.id
