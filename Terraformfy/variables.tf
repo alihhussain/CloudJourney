@@ -1,29 +1,41 @@
-variable "location" {
-  description = "The location where resources will be created"
-  type        = string
-}
-
+# Define variables
 variable "resource_group_name" {
   description = "The name of the resource group"
-  type        = string
+  default     = "FYRGP2"
 }
 
-variable "vnet_name" {
-  description = "The name of the virtual network"
-  type        = string
+variable "location" {
+  description = "The Azure region where the resources will be created"
+  default     = "eastus"
 }
 
-variable "address_space" {
-  description = "The address space of the virtual network"
-  type        = list(string)
+variable "vm_name" {
+  description = "The name of the virtual machine"
+  default     = "fyvm"
 }
 
-variable "subnet_name" {
-  description = "A list of subnet names"
-  type        = string
+variable "vm_size" {
+  description = "The size of the virtual machine"
+  default     = "Standard_DS1_v2"
 }
 
-variable "subnet_prefix" {
-  description = "A list of subnet prefixes that must be within the Virtual Network address space"
-  type        = list(string)
+variable "admin_username" {
+  description = "The admin username for the virtual machine"
+  default     = "azureuser6"
+}
+
+variable "admin_password" {
+  description = "The admin password for the virtual machine"
+  default     = "Cloudjourney2023!"
+  sensitive   = true
+}
+
+variable "nsg_name" {
+  description = "The name of the network security group"
+  default     = "fynsg"
+}
+
+variable "nsg_rule_name" {
+  description = "The name of the network security group rule"
+  default     = "allowSSH"
 }
