@@ -107,6 +107,11 @@ resource "azurerm_network_interface" "main" {
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.main.id
   }
+}
+
+# Associate the NSG with the subnet
+resource "azurerm_subnet_network_security_group_association" "main" {
+  subnet_id                 = azurerm_virtual_network.main.subnet.0.id
   network_security_group_id = azurerm_network_security_group.main.id
 }
 
