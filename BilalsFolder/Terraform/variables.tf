@@ -1,29 +1,50 @@
+# variables.tf
 variable "location" {
-  description = "The location where resources will be created"
+  description = "Location for the resources"
   type        = string
 }
-az
+
 variable "resource_group_name" {
-  description = "The name of the resource group"
+  description = "Name of the resource group"
   type        = string
 }
 
 variable "vnet_name" {
-  description = "The name of the virtual network"
+  description = "Name of the virtual network"
   type        = string
 }
 
 variable "address_space" {
-  description = "The address space of the virtual network"
-  type        = list(string)
+  description = "Address space for the virtual network"
+  type        = string
 }
 
 variable "subnet_name" {
-  description = "A list of subnet names"
+  description = "Name of the subnet"
   type        = string
 }
 
 variable "subnet_prefix" {
-  description = "A list of subnet prefixes that must be within the Virtual Network address space"
-  type        = list(string)
+  description = "Prefix for the subnet"
+  type        = string
+}
+
+variable "vm_name" {
+  description = "Name of the virtual machine"
+  type        = string
+}
+
+variable "vm_size" {
+  description = "Size of the virtual machine"
+  type        = string
+}
+
+variable "admin_username" {
+  description = "Admin username for the VM"
+  type        = string
+}
+
+variable "admin_password" {
+  description = "Admin password for the VM"
+  type        = string
 }
