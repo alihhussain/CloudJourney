@@ -1,4 +1,4 @@
-# Initialize the provider
+# Faisal the provider
 provider "azurerm" {
   features {}
 }
