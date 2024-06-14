@@ -1,0 +1,107 @@
+---
+- name: Install Tomcat on Ubuntu
+  hosts: all
+  become: yes
+  vars:
+    tomcat_version: 9.0.62
+    tomcat_user: tomcat
+    tomcat_group: tomcat
+    tomcat_home: /opt/tomcat
+    java_home: /usr/lib/jvm/java-11-openjdk-amd64
+  tasks:
+    - name: Update apt package index
+      apt:
+        update_cache: yes
+
+    - name: Ensure Java is installed
+      apt:
+        name: openjdk-11-jdk
+        state: present
+
+    - name: Create Tomcat group
+      group:
+        name: "{{ tomcat_group }}"
+        state: present
+
+    - name: Create Tomcat user
+      user:
+        name: "{{ tomcat_user }}"
+        group: "{{ tomcat_group }}"
+        create_home: no
+        shell: /bin/nologin
+        state: present
+
+    - name: Download Tomcat
+      get_url:
+        url: "https://downloads.apache.org/tomcat/tomcat-9/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.tar.gz"
+        dest: /tmp/apache-tomcat-{{ tomcat_version }}.tar.gz
+
+    - name: Create Tomcat directory
+      file:
+        path: "{{ tomcat_home }}"
+        state: directory
+        owner: "{{ tomcat_user }}"
+        group: "{{ tomcat_group }}"
+
+    - name: Extract Tomcat
+      unarchive:
+        src: /tmp/apache-tomcat-{{ tomcat_version }}.tar.gz
+        dest: "{{ tomcat_home }}"
+        remote_src: yes
+        owner: "{{ tomcat_user }}"
+        group: "{{ tomcat_group }}"
+        extra_opts: [--strip-components=1]
+
+    - name: Set permissions on Tomcat directory
+      file:
+        path: "{{ tomcat_home }}"
+        state: directory
+        recurse: yes
+        owner: "{{ tomcat_user }}"
+        group: "{{ tomcat_group }}"
+
+    - name: Create systemd service file for Tomcat
+      copy:
+        dest: /etc/systemd/system/tomcat.service
+        content: |
+          [Unit]
+          Description=Apache Tomcat Web Application Container
+          After=network.target
+
+          [Service]
+          Type=forking
+
+          Environment="JAVA_HOME={{ java_home }}"
+          Environment="CATALINA_PID={{ tomcat_home }}/temp/tomcat.pid"
+          Environment="CATALINA_HOME={{ tomcat_home }}"
+          Environment="CATALINA_BASE={{ tomcat_home }}"
+          Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+          Environment="JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom"
+
+          ExecStart={{ tomcat_home }}/bin/startup.sh
+          ExecStop={{ tomcat_home }}/bin/shutdown.sh
+
+          User={{ tomcat_user }}
+          Group={{ tomcat_group }}
+          UMask=0007
+          RestartSec=10
+          Restart=always
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Reload systemd
+      systemd:
+        daemon_reload: yes
+
+    - name: Start Tomcat service
+      systemd:
+        name: tomcat
+        state: started
+        enabled: yes
+
+    - name: Ensure port 8080 is open in the firewall
+      ufw:
+        rule: allow
+        port: 8080
+        proto: tcp
